@@ -7,6 +7,22 @@ Cloud Plugins project delivers 3 (for now) cloud plugins:
 * Mailgun - cloud-based mail services over HTTPS
 * Twilio - telecommunication cloud - currently supports sending SMS messages
 
+## Installation (forked repo to add it into github pages so it can be released)
+
+Start by adding the plugin as a dependency, in your `project/Build.scala`
+
+    val appDependencies = Seq(
+      "play-cloud-plugins" % "play-cloud-plugins_2.9.1" % "1.0-SNAPSHOT"
+    )
+
+Then add the repository into your play project resolvers (it is hosted on github taking advantage of github pages)
+
+    val main = PlayProject(appName, appVersion, appDependencies, mainLang = SCALA).settings(
+      ....
+      resolvers += Resolver.url("FireMuzzy GitHub Play Repository", url("http://firemuzzy.github.com/releases/"))(Resolver.ivyStylePatterns),
+      ....
+    )
+
 ## Configuration
 ### Environment variables
 
